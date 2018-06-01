@@ -22,8 +22,20 @@ module.exports = class extends Generator {
       {
         type: 'input',
         name: 'description',
-        message: 'App description',
+        message: 'App description:',
         default: 'Awesome description'
+      },
+      {
+        type: 'input',
+        name: 'description',
+        message: 'Author:',
+        default: this.appname
+      },
+      {
+        type: 'input',
+        name: 'homepage',
+        message: 'Homepage:',
+        default: `https://${this.appname}.com`
       },
       {
         type: 'confirm',
