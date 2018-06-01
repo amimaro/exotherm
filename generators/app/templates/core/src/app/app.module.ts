@@ -7,10 +7,17 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 
+import { ModalHelperProvider } from '../providers/modal-helper/modal-helper';
+import { LoadingHelperProvider } from '../providers/loading-helper/loading-helper';
+import { PopoverHelperProvider } from '../providers/popover-helper/popover-helper';
+
+import { ModalComponent } from '../components/modal/modal';
+
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    ModalComponent
   ],
   imports: [
     BrowserModule,
@@ -19,12 +26,16 @@ import { HomePage } from '../pages/home/home';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    ModalComponent
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ModalHelperProvider,
+    LoadingHelperProvider,
+    PopoverHelperProvider
   ]
 })
 export class AppModule {}
