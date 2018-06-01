@@ -7,8 +7,10 @@ module.exports = class extends Generator {
   prompting() {
     // Have Yeoman greet the user.
     this.log(
-      yosay(`Welcome to the bedazzling ${chalk.red('generator-exotherm')} generator!`)
+      yosay(`Welcome to ${chalk.red('exotherm')} generator!`)
     );
+
+    this.appname = this.appname.replace(/\s+/g, '-');
 
     const prompts = [
       {
@@ -33,6 +35,6 @@ module.exports = class extends Generator {
   }
 
   install() {
-    this.installDependencies();
+    // this.installDependencies();
   }
 };
