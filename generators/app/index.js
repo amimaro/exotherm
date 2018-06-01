@@ -71,8 +71,9 @@ module.exports = class extends Generator {
   }
 
   install() {
+    process.chdir(this.appname);
     this.npmInstall().then(() => {
-      this.log('\n\nDone!!')
+      this.log('\n\nSuccessfully Done!!')
       this.log('Run ' + chalk.green('ionic serve') + ' to start.\n')
     });
   }
