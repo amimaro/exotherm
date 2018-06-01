@@ -1,14 +1,29 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      <%= name %>
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+  <button color="secondary" icon-end="" ion-button=""
+    class="disable-hover button button-ios button-default button-default-ios button-ios-dark">
+    <span class="button-inner">
+      Create item
+      <ion-icon name="add" role="img" class="icon icon-ios ion-ios-add" aria-label="add"></ion-icon>
+    </span>
+    <div class="button-effect"></div>
+  </button>
+
+  <ion-label>Items list</ion-label>
+  <ion-list>
+    <ion-item *ngFor="let item of items">
+      <h2>{{ item }}</h2>
+      <button ion-button clear item-end>
+        <ion-icon name="more" style="font-size: 2.5rem"></ion-icon>
+      </button>
+    </ion-item>
+  </ion-list>
 </ion-content>
