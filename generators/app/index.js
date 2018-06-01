@@ -27,7 +27,7 @@ module.exports = class extends Generator {
       },
       {
         type: 'input',
-        name: 'description',
+        name: 'author',
         message: 'Author:',
         default: this.appname
       },
@@ -52,13 +52,28 @@ module.exports = class extends Generator {
   }
 
   writing() {
+
     this.fs.copy(
-      this.templatePath('dummyfile.txt'),
-      this.destinationPath('dummyfile.txt')
+      this.templatePath('core/.gitignore'),
+      this.destinationPath(`${this.appname}/.gitignore`)
+    );
+
+    this.fs.copy(
+      this.templatePath('core/.editorconfig'),
+      this.destinationPath(`${this.appname}/.editorconfig`)
+    );
+
+    this.fs.copyTpl(
+      this.templatePath('core'),
+      this.destinationPath(`${this.appname}/.`),
+      this.props
     );
   }
 
   install() {
-    // this.installDependencies();
+    this.npmInstall().then(() => {
+      this.log('\n\nDone!!')
+      this.log('Run ' + chalk.green('ionic serve') + ' to start.\n')
+    });
   }
 };
