@@ -7,16 +7,28 @@ module.exports = class extends Generator {
   prompting() {
     // Have Yeoman greet the user.
     this.log(
-      yosay(`Welcome to ${chalk.red('exotherm')} generator!`)
+      yosay(`Welcome to the bedazzling ${chalk.red('generator-exotherm')} generator!`)
     );
 
     this.appname = this.appname.replace(/\s+/g, '-');
 
     const prompts = [
       {
+        type: 'input',
+        name: 'name',
+        message: 'What is your app name?',
+        default: this.appname
+      },
+      {
+        type: 'input',
+        name: 'description',
+        message: 'App description',
+        default: 'Awesome description'
+      },
+      {
         type: 'confirm',
-        name: 'someAnswer',
-        message: 'Would you like to enable this option?',
+        name: 'authentication',
+        message: 'Would you like to enable authentication?',
         default: true
       }
     ];
