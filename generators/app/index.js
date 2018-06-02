@@ -52,29 +52,28 @@ module.exports = class extends Generator {
   }
 
   writing() {
-
     this.fs.copy(
       this.templatePath('core/.gitignore'),
-      this.destinationPath(`${this.appname}/.gitignore`)
+      this.destinationPath(`${this.props.name}/.gitignore`)
     );
 
     this.fs.copy(
       this.templatePath('core/.editorconfig'),
-      this.destinationPath(`${this.appname}/.editorconfig`)
+      this.destinationPath(`${this.props.name}/.editorconfig`)
     );
 
     this.fs.copyTpl(
       this.templatePath('core'),
-      this.destinationPath(`${this.appname}/.`),
+      this.destinationPath(`${this.props.name}/.`),
       this.props
     );
   }
 
   install() {
-    process.chdir(this.appname);
+    process.chdir(this.props.name);
     this.npmInstall().then(() => {
-      this.log('\n\nSuccessfully Done!!')
-      this.log('Run ' + chalk.green('ionic serve') + ' to start.\n')
+      this.log('\n\nSuccessfully Done!!');
+      this.log('Run ' + chalk.green('ionic serve') + ' to start.\n');
     });
   }
 };
