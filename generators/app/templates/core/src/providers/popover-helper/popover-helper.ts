@@ -1,17 +1,22 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { PopoverController } from 'ionic-angular';
 
-/*
-  Generated class for the PopoverHelperProvider provider.
-
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class PopoverHelperProvider {
 
-  constructor(public http: HttpClient) {
-    console.log('Hello PopoverHelperProvider Provider');
+  popover: any;
+
+  constructor(public popoverCtrl: PopoverController) {
+  }
+
+  presentPopover(component, data: any = {}) {
+    this.popover = this.popoverCtrl.create(component, data);
+    this.popover.present();
+    return this.popover;
+  }
+
+  dismissPopover() {
+    this.popover.dismiss();
   }
 
 }
