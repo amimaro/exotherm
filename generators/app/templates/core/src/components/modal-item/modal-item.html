@@ -1,0 +1,32 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-buttons left>
+        <button ion-button icon-only (click)="dismiss()">
+            cancel
+        </button>
+    </ion-buttons>
+    <ion-title>{{ title }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-label floating color="primary">Item Name</ion-label>
+      <ion-input [(ngModel)]="form.name" placeholder="Item Name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating color="primary">Item Type</ion-label>
+      <ion-input [(ngModel)]="form.type" placeholder="Item Type"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <button (click)="send()" ion-button color="secondary">Send</button>
+
+</ion-content>
