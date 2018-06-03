@@ -1,0 +1,5 @@
+<ion-list>
+  <button *ngFor="let option of options; let i = index" ion-item (click)="close(i)">
+    {{ option }}
+  </button>
+</ion-list>
