@@ -1,8 +1,15 @@
 import { NgModule } from '@angular/core';
-import { ModalComponent } from './modal/modal';
+import { ModalItemComponent } from './modal-item/modal-item';
+import { PopoverComponent } from './popover/popover';
 @NgModule({
-	declarations: [ModalComponent],
+	declarations: [
+		ModalItemComponent,
+		PopoverComponent
+	],
 	imports: [],
-	exports: [ModalComponent]
+	exports: [
+		ModalItemComponent,
+		PopoverComponent
+	]
 })
 export class ComponentsModule {}

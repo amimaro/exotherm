@@ -10,14 +10,17 @@ import { HomePage } from '../pages/home/home';
 import { ModalHelperProvider } from '../providers/modal-helper/modal-helper';
 import { LoadingHelperProvider } from '../providers/loading-helper/loading-helper';
 import { PopoverHelperProvider } from '../providers/popover-helper/popover-helper';
+import { ItemProvider } from '../providers/item/item';
 
-import { ModalComponent } from '../components/modal/modal';
+import { ModalItemComponent } from '../components/modal-item/modal-item';
+import { PopoverComponent } from '../components/popover/popover';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ModalComponent
+    ModalItemComponent,
+    PopoverComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +30,8 @@ import { ModalComponent } from '../components/modal/modal';
   entryComponents: [
     MyApp,
     HomePage,
-    ModalComponent
+    ModalItemComponent,
+    PopoverComponent
   ],
   providers: [
     StatusBar,
@@ -35,7 +39,8 @@ import { ModalComponent } from '../components/modal/modal';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ModalHelperProvider,
     LoadingHelperProvider,
-    PopoverHelperProvider
+    PopoverHelperProvider,
+    ItemProvider
   ]
 })
 export class AppModule {}
