@@ -1,5 +1,5 @@
-# generator-exotherm [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
-> Ionic + Firebase App Generator 
+# generator-exotherm [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/amimaro/generator-vuepress)
+> Ionic + Firebase App Generator
 
 ## Installation
 
@@ -8,12 +8,29 @@ First, install [Yeoman](http://yeoman.io) and generator-exotherm using [npm](htt
 ```bash
 npm install -g yo
 npm install -g generator-exotherm
+npm install -g ionic
 ```
 
 Then generate your new project:
 
 ```bash
 yo exotherm
+```
+
+## Firebase API Key
+
+Follow step 1 and 2 from this [tutorial](https://firebase.google.com/docs/web/setup) and copy the API Key snippet to `src/app/app.module.ts`.
+
+Example:
+```
+export const firebaseConfig = {
+  apiKey: "<API_KEY>",
+  authDomain: "<PROJECT_ID>.firebaseapp.com",
+  databaseURL: "https://<DATABASE_NAME>.firebaseio.com",
+  projectId: "<PROJECT_ID>",
+  storageBucket: "<BUCKET>.appspot.com",
+  messagingSenderId: "<SENDER_ID>",
+};
 ```
 
 ## Getting To Know Yeoman
