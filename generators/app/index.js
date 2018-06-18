@@ -53,7 +53,7 @@ module.exports = class extends Generator {
 
   writing() {
     this.fs.copy(
-      this.templatePath('core/.gitignore'),
+      this.templatePath('core/_.gitignore'),
       this.destinationPath(`${this.props.name}/.gitignore`)
     );
 
