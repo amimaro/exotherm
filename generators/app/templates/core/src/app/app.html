@@ -9,12 +9,12 @@
     <ion-list>
       <ion-list-header *ngIf="auth.getEmail()">{{auth.getEmail()}}</ion-list-header>
 
-      <ion-item (click)="logout()" *ngIf="auth.isAuthenticated">
+      <ion-item (click)="logout()" *ngIf="auth.isAuthenticated()">
         <ion-icon name="log-out" item-left></ion-icon>
         Exit
       </ion-item>
 
-      <ion-item (click)="login()" *ngIf="!auth.isAuthenticated">
+      <ion-item (click)="login()" *ngIf="!auth.isAuthenticated()">
         <ion-icon name="log-in" item-left></ion-icon>
         Enter
       </ion-item>
