@@ -6,41 +6,68 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { SigninPage } from '../pages/signin/signin';
+import { SignupPage } from '../pages/signup/signup';
 
 import { ModalHelperProvider } from '../providers/modal-helper/modal-helper';
 import { LoadingHelperProvider } from '../providers/loading-helper/loading-helper';
 import { PopoverHelperProvider } from '../providers/popover-helper/popover-helper';
-import { ItemProvider } from '../providers/item/item';
+import { DatabaseHelperProvider } from '../providers/database-helper/database-helper';
 
 import { ModalItemComponent } from '../components/modal-item/modal-item';
 import { PopoverComponent } from '../components/popover/popover';
+import { AuthProvider } from '../providers/auth/auth';
+
+import { NgxErrorsModule } from '@ultimate/ngxerrors';
+
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
+
+export const firebaseConfig = {
+  apiKey: "",
+  authDomain: "",
+  databaseURL: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: ""
+};
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ModalItemComponent,
-    PopoverComponent
+    PopoverComponent,
+    SigninPage,
+    SignupPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    NgxErrorsModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
     ModalItemComponent,
-    PopoverComponent
+    PopoverComponent,
+    SigninPage,
+    SignupPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     ModalHelperProvider,
     LoadingHelperProvider,
     PopoverHelperProvider,
-    ItemProvider
+    DatabaseHelperProvider,
+    AuthProvider,
+    AngularFireAuth,
   ]
 })
-export class AppModule {}
+export class AppModule { }
